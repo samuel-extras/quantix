@@ -3,11 +3,12 @@ import type { Plugin } from "@elizaos/core";
 import { spotMarketsProvider, walletProvider } from "./providers";
 import { orderbookProvider } from "./providers/orderbook";
 import { subaccountProvider } from "./providers/subaccount";
+import { ppmMonitor } from "./evaluators/ppmMonitor";
 export const injectivePlugin: Plugin = {
     name: "injective",
     description: "A plugin for interacting with the Injective blockchain",
     actions: InjectiveActions,
-    evaluators: [],
+    evaluators: [ppmMonitor],
     providers: [
         walletProvider,
         subaccountProvider,

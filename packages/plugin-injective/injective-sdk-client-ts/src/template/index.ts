@@ -13,3 +13,4 @@ export * from "./permissions";
 export * from "./staking";
 export * from "./token-factory";
 export * from "./wasm";
+export * from "./pmm";

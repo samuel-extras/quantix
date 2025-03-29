@@ -143,6 +143,8 @@ export function createGenericAction({
                         `Method "${functionName}" does not exist on InjectiveGrpcClient`,
                     );
                 }
+                console.log(`Calling InjectiveGrpcClient.${functionName}`);
+
                 //Function that the LLM extracted
                 console.log(
                     `will pass these params ${JSON.stringify(params)}}`,

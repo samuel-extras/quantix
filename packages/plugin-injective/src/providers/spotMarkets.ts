@@ -49,8 +49,27 @@ const spotMarketsProvider: Provider = {
             );
             const response = await client.getSpotMarkets();
             if (response.success) {
-                const responseResult = JSON.stringify(response.result);
-                return `The spot markets data is ${responseResult}. Please use this as your reference for any spot markets data operations or responses unless otherwise specified.`;
+                const responseResult = response.result;
+                const formattedResponses = responseResult.map((market) => {
+                    const {
+                        ticker,
+                        marketId,
+                        marketStatus,
+                        baseDenom,
+                        quoteDenom,
+                        quoteToken,
+                        baseToken,
+                        // makerFeeRate,
+                        // takerFeeRate,
+                        // serviceProviderFee,
+                        // minPriceTickSize,
+                        // minQuantityTickSize,
+                        // minNotional,
+                    } = market;
+
+                    return `${ticker} spot market data is as follows: marketId:${marketId}, marketStatus:${marketStatus},baseDenom: ${baseDenom},quoteDenom: ${quoteDenom},quoteToken: {name: ${quoteToken.name},address: ${quoteToken.address},symbol: "${quoteToken.symbol}",decimals: ${quoteToken.decimals}},baseToken: {name: ${baseToken.name},address: ${baseToken.address},symbol: ${baseToken.symbol},decimals: ${baseToken.decimals}, Please use this as your reference for any ${ticker} spot market operations or responses or extract information about ${ticker} from here.\n`;
+                });
+                return `${formattedResponses.join(" ")}`;
             } else {
                 return `spot markets data: ${response.error}`;
             }
@@ -62,3 +81,9 @@ const spotMarketsProvider: Provider = {
 };
 
 export { spotMarketsProvider };
+// makerFeeRate: "${makerFeeRate}",
+// takerFeeRate: "${takerFeeRate}",
+// serviceProviderFee: "${serviceProviderFee}",
+// minPriceTickSize: ${minPriceTickSize},
+// minQuantityTickSize: ${minQuantityTickSize},
+// minNotional: ${minNotional}

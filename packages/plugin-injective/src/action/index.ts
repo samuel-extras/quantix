@@ -11,6 +11,7 @@ import { MintActions } from "./mint";
 import { MitoActions } from "./mito";
 import { PeggyActions } from "./peggy";
 import { PermissionsActions } from "./permissions";
+import { PMMAction } from "./pmm";
 import { StakingActions } from "./staking";
 import { TokenFactoryActions } from "./token-factory";
 import { WasmActions } from "./wasm";
@@ -31,24 +32,26 @@ export * from "./permissions";
 export * from "./staking";
 export * from "./token-factory";
 export * from "./wasm";
+export * from "./pmm";
 
 export const InjectiveActions = [
-	...ExchangeActions,
-	...AuctionActions,
-	...AuthActions,
-	...BankActions,
-	...DistributionActions,
-	...ExplorerActions,
-	...GovActions,
-	...IbcActions,
-	...InsuranceActions,
-	...MintActions,
-	...MitoActions,
-	...PeggyActions,
-	...PermissionsActions,
-	...StakingActions,
-	...TokenFactoryActions,
-	...WasmActions,
+    // ...ExchangeActions,
+    // ...AuctionActions,
+    // ...AuthActions,
+    // ...BankActions,
+    // ...DistributionActions,
+    // ...ExplorerActions,
+    // ...GovActions,
+    // ...IbcActions,
+    // ...InsuranceActions,
+    // ...MintActions,
+    // ...MitoActions,
+    // ...PeggyActions,
+    // ...PermissionsActions,
+    // ...StakingActions,
+    // ...TokenFactoryActions,
+    // ...WasmActions,
+    PMMAction,
 ];
 
 export default InjectiveActions;
